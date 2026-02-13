@@ -2,7 +2,7 @@
 
 **Official workspace template for [OpenClaw](https://openclaw.ai) pro instances, powered by [Fuel](https://openclaw.rocks/fuel).**
 
-Clone this repo, add your Fuel virtual key, and you have a production-ready workspace with optimized inference, context management, and cost controls — no config to figure out.
+Clone this repo, add your Fuel virtual key, and you have a production-ready workspace with optimized inference, context management, and cost controls. No config to figure out.
 
 This template combines best practices from the [OpenClaw Token Optimization Guide](https://docs.google.com/document/d/1ffmZEfT7aenfAz2lkjyHsQIlYRWFpGcM/edit?tab=t.0) by [@mattganzak](https://github.com/mattganzak) and the [OpenClaw Runbook](https://github.com/digitalknk/openclaw-runbook) by [@digitalknk](https://github.com/digitalknk). The key difference: this config uses **Fuel** as the model provider, so you get semantic role routing (worker/reasoning/heartbeat) with automatic cheapest-provider selection instead of managing provider keys and model IDs directly.
 
@@ -28,9 +28,9 @@ sed -i '' 's/<YOUR_FUEL_VK>/vk-your-key-here/' openclaw.json
 
 | File | Purpose |
 |------|---------|
-| `openclaw.json` | Main config — Fuel models, concurrency limits, context pruning, compaction, caching |
-| `SOUL.md` | Agent personality and principles (template — customize this) |
-| `USER.md` | Your context: name, timezone, mission (template — customize this) |
+| `openclaw.json` | Main config: Fuel models, concurrency limits, context pruning, compaction, caching |
+| `SOUL.md` | Agent personality and principles (template, customize this) |
+| `USER.md` | Your context: name, timezone, mission (template, customize this) |
 | `AGENTS.md` | Shared agent instructions: session initialization, memory rules, 402 handling |
 | `HEARTBEAT.md` | Heartbeat check definitions (system health, task status) |
 | `memory/` | Memory directory for compaction flush (auto-populated) |
@@ -62,7 +62,7 @@ Your agent asks for `worker`, `reasoning`, or `heartbeat`. Fuel resolves that to
 | `fuel/reasoning` | ~$0.72 input / ~$3.60 output | Architecture, complex reasoning, research |
 | `fuel/heartbeat` | ~$0.06 input / ~$0.24 output | Heartbeats, status checks |
 
-Costs are approximate — we continuously optimize which providers and models back each role. Current model details are always visible at [openclaw.rocks/fuel](https://openclaw.rocks/fuel).
+Costs are approximate. We continuously optimize which providers and models back each role. Current model details are always visible at [openclaw.rocks/fuel](https://openclaw.rocks/fuel).
 
 ## Region filtering
 
@@ -79,7 +79,7 @@ https://inference.openclaw.rocks/v1/~us-us       # US origin + US providers
 - **Provider region** (after the `-`): Where the API is physically hosted. `eu` = data only goes to EU-hosted APIs.
 - **Model origin** (before the `-`): Where the model company is based. `eu` = only models from EU companies.
 
-Every region filter has full role coverage — no gaps:
+Every region filter has full role coverage, no gaps:
 
 | Filter | Worker | Reasoning | Heartbeat |
 |--------|--------|-----------|-----------|
@@ -104,14 +104,14 @@ Every region filter has full role coverage — no gaps:
 
 This template builds on the work of:
 
-- **[@mattganzak](https://github.com/mattganzak)** — [OpenClaw Token Optimization Guide](https://docs.google.com/document/d/1ffmZEfT7aenfAz2lkjyHsQIlYRWFpGcM/edit?tab=t.0): session initialization, context pruning, rate limiting, model routing patterns
-- **[@digitalknk](https://github.com/digitalknk)** — [OpenClaw Runbook](https://github.com/digitalknk/openclaw-runbook): compaction, memory management, heartbeat tuning, security defaults
+- **[@mattganzak](https://github.com/mattganzak)**: [OpenClaw Token Optimization Guide](https://docs.google.com/document/d/1ffmZEfT7aenfAz2lkjyHsQIlYRWFpGcM/edit?tab=t.0) (session initialization, context pruning, rate limiting, model routing patterns)
+- **[@digitalknk](https://github.com/digitalknk)**: [OpenClaw Runbook](https://github.com/digitalknk/openclaw-runbook) (compaction, memory management, heartbeat tuning, security defaults)
 
 ## Links
 
-- [Fuel managed service](https://openclaw.rocks/fuel) — get your virtual key
-- [Fuel repo](https://github.com/openclaw-rocks/fuel) — proxy source, model matrix, skill
-- [OpenClaw](https://openclaw.ai) — your AI agent, live in seconds
+- [Fuel managed service](https://openclaw.rocks/fuel): get your virtual key
+- [Fuel repo](https://github.com/openclaw-rocks/fuel): proxy source, model matrix, skill
+- [OpenClaw](https://openclaw.ai): your AI agent, live in seconds
 
 ## License
 

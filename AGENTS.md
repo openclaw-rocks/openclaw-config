@@ -10,7 +10,7 @@ On every session start:
 
 ## Memory
 - Compaction flushes to memory/YYYY-MM-DD.md at 40k tokens automatically
-- Format: ## [HH:MM] Topic — decisions, state changes, lessons
+- Format: ## [HH:MM] Topic - decisions, state changes, lessons
 - Skip routine work. Write NO_FLUSH if nothing important happened
 - Search memory on demand, don't load everything
 
