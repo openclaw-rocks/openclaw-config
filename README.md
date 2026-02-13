@@ -20,8 +20,10 @@ sed -i '' 's/<YOUR_FUEL_VK>/vk-your-key-here/' openclaw.json
 # 3. Customize your agent
 #    Edit SOUL.md (personality), USER.md (your context)
 
-# 4. Run your agent
-#    Point your OpenClaw instance at this directory
+# 4. Set this directory as your instance workspace
+#    In your OpenClaw dashboard, create or edit an instance and
+#    set the workspace path to this directory. OpenClaw reads
+#    openclaw.json, SOUL.md, USER.md, and AGENTS.md on startup.
 ```
 
 ## What's in each file
