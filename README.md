@@ -1,6 +1,6 @@
 # OpenClaw Config
 
-**Official workspace template for [OpenClaw](https://openclaw.ai) pro instances, powered by [Fuel](https://openclaw.rocks/fuel).**
+**Optimized workspace template for [OpenClaw](https://openclaw.ai) pro instances, powered by [Fuel](https://openclaw.rocks/fuel).**
 
 Clone this repo, add your Fuel virtual key, and you have a production-ready workspace with optimized inference, context management, and cost controls. No config to figure out.
 
