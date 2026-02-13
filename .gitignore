@@ -1,0 +1,13 @@
+# Sessions and logs
+agents/*/sessions/
+agents/*/agent/*.jsonl
+*.log
+
+# Credentials (never commit)
+credentials/
+*.key
+*.pem
+
+# OS files
+.DS_Store
+Thumbs.db

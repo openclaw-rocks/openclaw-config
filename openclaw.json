@@ -1,0 +1,85 @@
+{
+  "agents": {
+    "defaults": {
+      "maxConcurrent": 4,
+      "model": {
+        "primary": "fuel/worker",
+        "fallbacks": ["fuel/reasoning"]
+      },
+      "subagents": {
+        "maxConcurrent": 8,
+        "model": {
+          "primary": "fuel/worker"
+        }
+      },
+      "heartbeat": {
+        "every": "1h",
+        "model": "fuel/heartbeat"
+      },
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "6h",
+        "keepLastAssistants": 3
+      },
+      "compaction": {
+        "mode": "default",
+        "reserveTokensFloor": 20000,
+        "memoryFlush": {
+          "enabled": true,
+          "softThresholdTokens": 40000,
+          "prompt": "Extract key decisions, state changes, lessons, and blockers to memory/YYYY-MM-DD.md. Format: ## [HH:MM] Topic. Skip routine work. Output NO_FLUSH if nothing important happened.",
+          "systemPrompt": "Compacting session context. Extract only what is worth remembering. No fluff, no routine operations."
+        }
+      },
+      "memorySearch": {
+        "enabled": true,
+        "sources": ["memory", "sessions"],
+        "provider": "local"
+      },
+      "cache": {
+        "enabled": true,
+        "ttl": "5m",
+        "priority": "high"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "fuel": {
+        "baseUrl": "https://inference.openclaw.rocks/v1",
+        "apiKey": "<YOUR_FUEL_VK>",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "worker",
+            "name": "Fuel Worker",
+            "cost": { "input": 0.67, "output": 2.02 },
+            "contextWindow": 131072
+          },
+          {
+            "id": "reasoning",
+            "name": "Fuel Reasoning",
+            "cost": { "input": 0.72, "output": 3.60 },
+            "contextWindow": 262144
+          },
+          {
+            "id": "heartbeat",
+            "name": "Fuel Heartbeat",
+            "cost": { "input": 0.06, "output": 0.24 },
+            "contextWindow": 131072
+          }
+        ]
+      }
+    }
+  },
+  "tools": {
+    "profile": "full"
+  },
+  "gateway": {
+    "bind": "loopback"
+  },
+  "logging": {
+    "redactSensitive": "tools"
+  }
+}
