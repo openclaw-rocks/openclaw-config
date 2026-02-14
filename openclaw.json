@@ -16,13 +16,7 @@
         "every": "1h",
         "model": "fuel/heartbeat"
       },
-      "contextPruning": {
-        "mode": "cache-ttl",
-        "ttl": "6h",
-        "keepLastAssistants": 3
-      },
       "compaction": {
-        "mode": "default",
         "reserveTokensFloor": 20000,
         "memoryFlush": {
           "enabled": true,
@@ -35,11 +29,6 @@
         "enabled": true,
         "sources": ["memory", "sessions"],
         "provider": "local"
-      },
-      "cache": {
-        "enabled": true,
-        "ttl": "5m",
-        "priority": "high"
       }
     }
   },
