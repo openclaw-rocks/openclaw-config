@@ -48,19 +48,19 @@
           {
             "id": "worker",
             "name": "Fuel Worker",
-            "cost": { "input": 0.67, "output": 2.02 },
-            "contextWindow": 131072
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "contextWindow": 163840
           },
           {
             "id": "reasoning",
             "name": "Fuel Reasoning",
-            "cost": { "input": 0.72, "output": 3.60 },
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
             "contextWindow": 262144
           },
           {
             "id": "heartbeat",
             "name": "Fuel Heartbeat",
-            "cost": { "input": 0.06, "output": 0.24 },
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
             "contextWindow": 131072
           }
         ]
