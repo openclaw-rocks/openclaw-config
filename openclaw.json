@@ -74,8 +74,8 @@
         ]
       },
       "openai": {
-        "baseUrl": "https://inference.openclaw.rocks/v1",
-        "apiKey": "<YOUR_FUEL_VK>",
+        "baseUrl": "http://fuel-proxy.openclawrocks.svc.cluster.local:8080/v1",
+        "apiKey": "${BIFROST_VIRTUAL_KEY}",
         "models": [
           {
             "id": "text-embedding-3-small",
