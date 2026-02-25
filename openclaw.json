@@ -62,13 +62,32 @@
             "name": "Fuel Heartbeat",
             "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
             "contextWindow": 131072
+          },
+          {
+            "id": "audio",
+            "name": "Fuel Audio",
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "contextWindow": 32768
           }
         ]
+      },
+      "openai": {
+        "baseUrl": "https://inference.openclaw.rocks/v1",
+        "apiKey": "<YOUR_FUEL_VK>",
+        "models": []
       }
     }
   },
   "tools": {
-    "profile": "full"
+    "profile": "full",
+    "media": {
+      "audio": {
+        "enabled": true,
+        "models": [
+          { "provider": "openai", "model": "whisper-1", "capabilities": ["audio"] }
+        ]
+      }
+    }
   },
   "gateway": {
     "bind": "loopback"
