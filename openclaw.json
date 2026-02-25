@@ -33,7 +33,8 @@
       "memorySearch": {
         "enabled": true,
         "sources": ["memory", "sessions"],
-        "provider": "local",
+        "provider": "openai",
+        "model": "text-embedding-3-small",
         "experimental": { "sessionMemory": true }
       }
     }
@@ -75,7 +76,15 @@
       "openai": {
         "baseUrl": "https://inference.openclaw.rocks/v1",
         "apiKey": "<YOUR_FUEL_VK>",
-        "models": []
+        "models": [
+          {
+            "id": "text-embedding-3-small",
+            "name": "Text Embedding 3 Small",
+            "capabilities": ["embeddings"],
+            "cost": { "input": 0, "output": 0 },
+            "contextWindow": 8191
+          }
+        ]
       }
     }
   },
