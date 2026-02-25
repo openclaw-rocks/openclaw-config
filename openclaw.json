@@ -16,6 +16,11 @@
         "every": "1h",
         "model": "fuel/heartbeat"
       },
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "6h",
+        "keepLastAssistants": 3
+      },
       "compaction": {
         "reserveTokensFloor": 20000,
         "memoryFlush": {
@@ -28,12 +33,8 @@
       "memorySearch": {
         "enabled": true,
         "sources": ["memory", "sessions"],
-        "provider": "local"
-      },
-      "cache": {
-        "enabled": true,
-        "ttl": "5m",
-        "priority": "high"
+        "provider": "local",
+        "experimental": { "sessionMemory": true }
       }
     }
   },
@@ -75,6 +76,18 @@
         "baseUrl": "https://inference.openclaw.rocks/v1",
         "apiKey": "<YOUR_FUEL_VK>",
         "models": []
+      }
+    }
+  },
+  "commands": {
+    "restart": true
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": { "enabled": true },
+        "session-memory": { "enabled": true }
       }
     }
   },
