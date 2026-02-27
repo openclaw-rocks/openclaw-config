@@ -3,18 +3,18 @@
     "defaults": {
       "maxConcurrent": 4,
       "model": {
-        "primary": "fuel/worker",
-        "fallbacks": ["fuel/reasoning"]
+        "primary": "openai/worker",
+        "fallbacks": ["openai/reasoning"]
       },
       "subagents": {
         "maxConcurrent": 8,
         "model": {
-          "primary": "fuel/worker"
+          "primary": "openai/worker"
         }
       },
       "heartbeat": {
         "every": "1h",
-        "model": "fuel/heartbeat"
+        "model": "openai/heartbeat"
       },
       "contextPruning": {
         "mode": "cache-ttl",
@@ -33,7 +33,7 @@
       "memorySearch": {
         "enabled": true,
         "sources": ["memory", "sessions"],
-        "provider": "fuel",
+        "provider": "openai",
         "model": "text-embedding-3-small",
         "experimental": { "sessionMemory": true }
       }
@@ -45,9 +45,9 @@
   "models": {
     "mode": "merge",
     "providers": {
-      "fuel": {
+      "openai": {
         "baseUrl": "http://fuel-proxy.openclawrocks.svc.cluster.local:8080/v1",
-        "apiKey": "${BIFROST_VIRTUAL_KEY}",
+        "apiKey": "${FUEL_API_KEY}",
         "api": "openai-completions",
         "models": [
           {
@@ -102,7 +102,7 @@
       "audio": {
         "enabled": true,
         "models": [
-          { "provider": "fuel", "model": "whisper-1", "capabilities": ["audio"] }
+          { "provider": "openai", "model": "whisper-1", "capabilities": ["audio"] }
         ]
       }
     }
