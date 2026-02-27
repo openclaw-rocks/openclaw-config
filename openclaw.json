@@ -33,18 +33,21 @@
       "memorySearch": {
         "enabled": true,
         "sources": ["memory", "sessions"],
-        "provider": "openai",
+        "provider": "fuel",
         "model": "text-embedding-3-small",
         "experimental": { "sessionMemory": true }
       }
     }
   },
+  "messages": {
+    "ackReactionScope": "group-all"
+  },
   "models": {
     "mode": "merge",
     "providers": {
       "fuel": {
-        "baseUrl": "https://inference.openclaw.rocks/v1",
-        "apiKey": "<YOUR_FUEL_VK>",
+        "baseUrl": "http://fuel-proxy.openclawrocks.svc.cluster.local:8080/v1",
+        "apiKey": "${BIFROST_VIRTUAL_KEY}",
         "api": "openai-completions",
         "models": [
           {
@@ -70,13 +73,7 @@
             "name": "Fuel Audio",
             "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
             "contextWindow": 32768
-          }
-        ]
-      },
-      "openai": {
-        "baseUrl": "http://fuel-proxy.openclawrocks.svc.cluster.local:8080/v1",
-        "apiKey": "${BIFROST_VIRTUAL_KEY}",
-        "models": [
+          },
           {
             "id": "text-embedding-3-small",
             "name": "Text Embedding 3 Small",
@@ -105,7 +102,7 @@
       "audio": {
         "enabled": true,
         "models": [
-          { "provider": "openai", "model": "whisper-1", "capabilities": ["audio"] }
+          { "provider": "fuel", "model": "whisper-1", "capabilities": ["audio"] }
         ]
       }
     }
