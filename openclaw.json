@@ -53,7 +53,7 @@
     "mode": "merge",
     "providers": {
       "oc": {
-        "baseUrl": "http://fuel-proxy-next.openclawrocks.svc.cluster.local:8080/v1",
+        "baseUrl": "http://fuel-proxy.openclawrocks.svc.cluster.local:8080/v1",
         "apiKey": "${FUEL_API_KEY}",
         "api": "openai-completions",
         "models": [
@@ -104,7 +104,7 @@
         ]
       },
       "openai": {
-        "baseUrl": "http://fuel-proxy-next.openclawrocks.svc.cluster.local:8080/v1",
+        "baseUrl": "http://fuel-proxy.openclawrocks.svc.cluster.local:8080/v1",
         "apiKey": "${FUEL_API_KEY}",
         "models": [
           {
