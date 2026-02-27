@@ -38,7 +38,7 @@
           "memory",
           "sessions"
         ],
-        "provider": "oc",
+        "provider": "openai",
         "model": "text-embedding-3-small",
         "experimental": {
           "sessionMemory": true
@@ -100,7 +100,13 @@
               "cacheWrite": 0
             },
             "contextWindow": 32768
-          },
+          }
+        ]
+      },
+      "openai": {
+        "baseUrl": "http://fuel-proxy.openclawrocks.svc.cluster.local:8080/v1",
+        "apiKey": "${FUEL_API_KEY}",
+        "models": [
           {
             "id": "text-embedding-3-small",
             "name": "Text Embedding 3 Small",
