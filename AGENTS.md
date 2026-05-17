@@ -18,5 +18,5 @@ On every session start:
 When you receive HTTP 402 from inference:
 1. Stop making LLM calls immediately
 2. Save current work state to memory
-3. Tell the user: "Fuel credits exhausted. Top up at https://openclaw.rocks/fuel"
+3. Tell the user: "Fuel credits exhausted. Top up at https://openclaw.rocks"
 4. Do NOT retry until credits confirmed available
