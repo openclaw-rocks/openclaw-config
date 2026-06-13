@@ -1,6 +1,6 @@
 # OpenClaw Config
 
-**Optimized workspace template for [OpenClaw](https://openclaw.ai) pro instances, powered by [Fuel](https://openclaw.rocks/fuel).**
+**Optimized workspace template for [OpenClaw](https://openclaw.ai) pro instances, powered by [Fuel](https://openclaw.rocks).**
 
 Clone this repo, add your Fuel virtual key, and you have a production-ready workspace with optimized inference, context management, and cost controls. No config to figure out.
 
@@ -14,7 +14,7 @@ git clone https://github.com/openclaw-rocks/openclaw-config.git my-workspace
 cd my-workspace
 
 # 2. Replace the placeholder with your Fuel virtual key
-#    Get one at https://openclaw.rocks/fuel
+#    Get one at https://openclaw.rocks
 sed -i '' 's/<YOUR_FUEL_VK>/vk-your-key-here/' openclaw.json
 
 # 3. Customize your agent
@@ -35,6 +35,7 @@ sed -i '' 's/<YOUR_FUEL_VK>/vk-your-key-here/' openclaw.json
 | `USER.md` | Your context: name, timezone, mission (template, customize this) |
 | `AGENTS.md` | Shared agent instructions: session initialization, memory rules, 402 handling |
 | `HEARTBEAT.md` | Heartbeat check definitions (system health, task status) |
+| `TOOLS.md` | Local tool notes and optional OpenClaw plugin examples |
 | `memory/` | Memory directory for compaction flush (auto-populated) |
 | `.gitignore` | Ignores sessions, logs, credentials |
 
@@ -64,7 +65,7 @@ Your agent asks for `worker`, `reasoning`, or `heartbeat`. Fuel resolves that to
 | `fuel/reasoning` | ~$0.72 input / ~$3.60 output | Architecture, complex reasoning, research |
 | `fuel/heartbeat` | ~$0.06 input / ~$0.24 output | Heartbeats, status checks |
 
-Costs are approximate. We continuously optimize which providers and models back each role. Current model details are always visible at [openclaw.rocks/fuel](https://openclaw.rocks/fuel).
+Costs are approximate. We continuously optimize which providers and models back each role. Current model details are always visible at [openclaw.rocks](https://openclaw.rocks).
 
 ## Region filtering
 
@@ -95,7 +96,7 @@ Every region filter has full role coverage, no gaps:
 | Problem | Fix |
 |---------|-----|
 | `401 Unauthorized` | Check your virtual key in `openclaw.json`. It should start with `vk-`. |
-| `402 Budget Exceeded` | Credits exhausted. Top up at [openclaw.rocks/fuel](https://openclaw.rocks/fuel). |
+| `402 Budget Exceeded` | Credits exhausted. Top up at [openclaw.rocks](https://openclaw.rocks). |
 | `429 Too Many Requests` | Hit rate limits. Wait a moment or check concurrency settings. |
 | Agent not using Fuel | Verify model IDs start with `fuel/` in your config. |
 | Context growing too fast | Verify `contextPruning` is set in `openclaw.json`. Check AGENTS.md session init rules. |
@@ -111,8 +112,8 @@ This template builds on the work of:
 
 ## Links
 
-- [Fuel managed service](https://openclaw.rocks/fuel): get your virtual key
-- [Fuel repo](https://github.com/openclaw-rocks/fuel): proxy source, model matrix, skill
+- [OpenClaw.rocks managed service](https://openclaw.rocks): get your virtual key
+- [OpenClaw.rocks GitHub org](https://github.com/openclaw-rocks): operator, skills, status, and config repositories
 - [OpenClaw](https://openclaw.ai): your AI agent, live in seconds
 
 ## License

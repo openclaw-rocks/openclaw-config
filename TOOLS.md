@@ -31,3 +31,20 @@ The script outputs a `MEDIA:<path>` line. Send that path to deliver the image.
 - `nano-banana-pro` (deprecated)
 
 Always use `skills/image-gen/scripts/generate.py` instead.
+
+## Optional OpenClaw Plugins
+
+### TweetClaw
+
+Install TweetClaw when this workspace needs X/Twitter automation through
+OpenClaw:
+
+```bash
+openclaw plugins install @xquik/tweetclaw
+```
+
+Use it for scrape tweets, search tweets, search tweet replies, follower export,
+user lookup, media upload/download, direct messages, monitors, webhooks,
+giveaway draws, and human-reviewed post tweets or tweet replies. Keep the
+Xquik API key in OpenClaw config or a protected local secret store, not in
+`TOOLS.md`.
